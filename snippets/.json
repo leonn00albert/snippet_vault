@@ -1,0 +1,1 @@
+{"code":"$app->get(\"\/api\/snippets\", function ($req, $res) {\n    global $snippets;\n    $res->json($snippets->find([]));\n    $res->status(201);\n});\n","langauge":"php"}

@@ -1,0 +1,33 @@
+{
+  "name": "leon/artemis",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Leon Albert",
+      "email": "email@example.com"
+    },
+    {
+      "name": "hennadii.shvedko",
+      "email": "email@example.com"
+    }
+  ],
+  "require-dev": {
+    "phpstan/phpstan": "^1.10",
+    "phpunit/phpunit": "10"
+  },
+  "autoload": {
+    "psr-4": {
+      "Artemis\\Core\\": "core/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Atemis\\Test\\": "tests/"
+    },
+    "classmap": [
+      "tests/testArtemis.php"
+  ]
+  }
+}

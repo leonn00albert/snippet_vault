@@ -1,0 +1,55 @@
+{
+    "packages": [
+        {
+            "name": "wdlndfx/artemis",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/leonn00albert/Artemis.git",
+                "reference": "bcaee95b1f386ddc10bc8bc1c3eb61b6dcc8611b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/leonn00albert/Artemis/zipball/bcaee95b1f386ddc10bc8bc1c3eb61b6dcc8611b",
+                "reference": "bcaee95b1f386ddc10bc8bc1c3eb61b6dcc8611b",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^1.10",
+                "phpunit/phpunit": "10"
+            },
+            "time": "2023-05-25T14:10:36+00:00",
+            "default-branch": true,
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Artemis\\Core\\": "core/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Leon Albert",
+                    "email": "email@example.com"
+                },
+                {
+                    "name": "hennadii.shvedko",
+                    "email": "email@example.com"
+                }
+            ],
+            "description": "description",
+            "support": {
+                "issues": "https://github.com/leonn00albert/Artemis/issues",
+                "source": "https://github.com/leonn00albert/Artemis/tree/master"
+            },
+            "install-path": "../wdlndfx/artemis"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}
