@@ -8,12 +8,10 @@ use Artemis\Core\DataBases\DB;
 $app = Router::getInstance();
 $snippets = DB::new("JSON", "snippets");
 
-$app->get("/", function ($req, $res) {
-    $res->render(__DIR__ . "/views/index.php");
+$app->get("/snippets/:id", function ($req, $res) {
+    $res->render(__DIR__ . "/views/show.php");
     $res->status(200);
 });
-
-
 $app->get("/api/snippets", function ($req, $res) {
     global $snippets;
     $res->json($snippets->find([]));
@@ -33,8 +31,46 @@ function writeDatabase($data)
     file_put_contents('database.json', $json);
 }
 
-$app->get("/api/filetrees", function ($req, $res) {
 
+$app->get("/", function ($req, $res) {
+    $res->render(__DIR__ . "/views/index.php");
+    $res->status(200);
+});
+
+
+$app->get("/api/snippets/:id", function ($req, $res) {
+
+    $db = readDatabase();
+    function findElementById($data, $id) {
+        foreach ($data as $element) {
+            if ($element['id'] === $id) {
+                return $element;
+            }
+    
+            if (!empty($element['children'])) {
+                $result = findElementById($element['children'], $id);
+                if ($result) {
+                    return $result;
+                }
+            }
+        }
+    
+        return null;
+    }
+
+    $foundElement = findElementById($db, $req->params()["id"]);
+    if ($foundElement) {
+        $res->jsoN($foundElement);
+        $res->status(200);
+    } else {
+        $res->send($req->params()["id"]);
+        $res->status(500);
+    }
+ 
+}); 
+
+
+$app->get("/api/filetrees", function ($req, $res) {
     $res->json(readDatabase());
     $res->status(201);
 });
