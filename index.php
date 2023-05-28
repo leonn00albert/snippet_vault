@@ -19,6 +19,38 @@ $app->get("/api/snippets", function ($req, $res) {
     $res->status(201);
 });
 
+
+$app->get("/api/filetrees", function ($req, $res) {
+    global $snippets;
+    $arr = [
+        [
+            'text' => 'Root',
+            'children' => [
+                [
+                    'text' => 'Beverages',
+                    'children' => [
+                        'Water',
+                        'Coffee',
+                        [
+                            'text' => 'Tea',
+                            'children' => [
+                                'Black Tea',
+                                'White Tea',
+                                [
+                                    'text' => 'Green Tea',
+                                    'children' => ['Sencha', 'Gyokuro', 'Matcha', 'Pi Lo Chun']
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ];
+    $res->json($arr);
+    $res->status(201);
+});
+
 $app->post("/api/snippets", function ($req, $res) {
     global $snippets;
     $snippets->create($req->body());
