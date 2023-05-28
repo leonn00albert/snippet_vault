@@ -1,0 +1,15 @@
+[
+    {
+        "text": "adads",
+        "children": [
+      
+            {
+                "text": "php snippet",
+                "id": "647380cae4807",
+                "code": "$app->get(\"\/api\/snippets\", function ($req, $res) {\n    global $snippets;\n    $res->json($snippets->find([]));\n    $res->status(201);\n});",
+                "language": "php"
+            }
+        ],
+        "id": "647379b6ac2cc"
+    }
+]
