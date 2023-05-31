@@ -22,16 +22,13 @@
             color: white;
             width: 100%;
             display: block;
+            margin: 0.2em;
         }
-
+        .caret span {
+            margin: 0.5em;
+        }
         /* Create the caret/arrow with a unicode, and style it */
-        .caret::before {
-            content: "\25B6";
-            color: black;
-            display: inline-block;
-            margin-right: 6px;
-        }
-
+  
         /* Rotate the caret/arrow icon when clicked on (using JavaScript) */
         .caret-down::before {
             transform: rotate(90deg);
@@ -43,6 +40,16 @@
             background-color: #303030;
         }
 
+        .nested li{
+            padding: 0.2em 0;
+        }
+        .nested p{
+            font-weight: bold;
+        }
+
+        .nested p:hover{
+            cursor: pointer;
+        }
         /* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
         .active {
             display: block;
@@ -68,3 +75,5 @@
         .add-folder:focus {
             outline: none;
         }
+
+        
