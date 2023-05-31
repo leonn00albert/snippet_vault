@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . "/vendor/autoload.php";
+require_once "utils.php";
 
 
 use Artemis\Core\Router\Router;
@@ -8,14 +9,33 @@ use Artemis\Core\DataBases\DB;
 $app = Router::getInstance();
 $snippets = DB::new("JSON", "snippets");
 
+
+$app->get("/snippets/new", function ($req, $res) {
+    $res->render(__DIR__ . "/views/new.php");
+    $res->status(200);
+});
+
+
 $app->get("/snippets/:id", function ($req, $res) {
     $res->render(__DIR__ . "/views/show.php");
     $res->status(200);
 });
+
 $app->get("/api/snippets", function ($req, $res) {
-    global $snippets;
-    $res->json($snippets->find([]));
-    $res->status(201);
+    
+    $db = readDatabase();
+    $arr = array_map(function($elm) {
+        return $elm["children"];
+    },$db);
+
+    foreach($arr as &$elm) {
+        foreach($elm as &$child) {
+             $child["date_ago"] = getTimeAgo($child["date"]);
+        
+        }
+    }
+    $res->json($arr);
+   
 });
 
 function readDatabase()
@@ -90,7 +110,9 @@ $app->post("/api/snippets", function ($req, $res) {
     if ($key !== false) {
         array_push(
             $db[$key]["children"],
-            [
+            [ 
+                "date" => date('Y-m-d H:i:s'),
+                "user" => "leon",
                 "text" => $req->body()["title"],
                 "id" => uniqid(),
                 "code" => $req->body()["code"],

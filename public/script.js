@@ -15,14 +15,14 @@ function appendTreeView(url, elementId) {
 
 
 function createTreeView(data, i, item) {
-    console.log(data)
+  
     const ul = document.createElement('ul');
     const add = document.createElement('p');
     if (i) {
         add.className = 'add-folder';
         add.innerHTML = "add snippet"
         add.addEventListener("click", function() {
-            window.location = '/?id=' + item.id;
+            window.location = '/snippets/new?id=' + item.id;
         });
     } else {
         const inputElement = document.createElement('input');
