@@ -1,6 +1,8 @@
 <?php include "header.php"; ?>
 
+
 <div class="container text-center">
+<?php include "nav.php"; ?>
     <div class="row">
         <div class="col m-2">
             <div id="filetree" class="m-2">
