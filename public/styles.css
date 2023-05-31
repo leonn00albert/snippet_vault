@@ -1,4 +1,8 @@
         /* Remove default bullets */
+        ul {
+            text-align: left;
+        }
+        
         ul,
         #myUL {
             list-style-type: none;
@@ -14,7 +18,10 @@
         .caret {
             cursor: pointer;
             user-select: none;
-            /* Prevent text selection */
+            background: #375a7f;
+            color: white;
+            width: 100%;
+            display: block;
         }
 
         /* Create the caret/arrow with a unicode, and style it */
@@ -33,6 +40,7 @@
         /* Hide the nested list */
         .nested {
             display: none;
+            background-color: #303030;
         }
 
         /* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
@@ -48,5 +56,15 @@
         }
 
         textarea:focus {
+            outline: none;
+        }
+
+        .add-folder {
+            width: 100%;
+            margin: 10px 0;
+            border: none;
+        }
+
+        .add-folder:focus {
             outline: none;
         }

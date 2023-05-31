@@ -2,14 +2,42 @@
     {
         "text": "adads",
         "children": [
-      
             {
                 "text": "php snippet",
                 "id": "647380cae4807",
                 "code": "$app->get(\"\/api\/snippets\", function ($req, $res) {\n    global $snippets;\n    $res->json($snippets->find([]));\n    $res->status(201);\n});",
                 "language": "php"
+            },
+            {
+                "text": "php snippet",
+                "id": "6474a4ea092cb",
+                "code": "const formData = new FormData();\nformData.append('username', 'David');\nformData.append('password', '12345');\nfetch('https:\/\/example.com\/authenticate', {\n    method: 'POST',\n    body: formData\n}).then(response => response.json()).then(data => {\n    console.log(data);\n}).catch(error => {\n    console.error('Error:', error);\n});",
+                "language": "php"
+            },
+            {
+                "text": "Validate Email Address",
+                "id": "6474a5dde7f4f",
+                "code": "if (\/\\S+@\\S+\\.\\S+\/.test('david@codeshack.io')) {\n    console.log('Email is valid!');\n} else {\n    console.log('Email is invalid!');\n}",
+                "language": "php"
             }
         ],
         "id": "647379b6ac2cc"
+    },
+    {
+        "text": "javascript",
+        "children": [
+            {
+                "text": "String Length",
+                "id": "6474a8ad80c34",
+                "code": "const username = \"david123\";\nif (username.length > 4 && username.length < 16) {\n    console.log('Username is valid!');\n} else {\n    console.log('Username must be between 5 and 15 characters long!');\n}",
+                "language": "php"
+            }
+        ],
+        "id": "6474a8984f45f"
+    },
+    {
+        "text": "asdasd",
+        "children": [],
+        "id": "6476fff39e4a8"
     }
 ]
