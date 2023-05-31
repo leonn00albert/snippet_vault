@@ -13,7 +13,16 @@
             <span class="visually-hidden">(current)</span>
           </a>
         </li>
-  
+        <li class="nav-item">
+          <a class="nav-link active" href="/login">Login
+            <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/register">Register
+            <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
     </div>
   </div>
 </nav>

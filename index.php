@@ -2,7 +2,6 @@
 require_once __DIR__ . "/vendor/autoload.php";
 require_once "utils.php";
 
-
 use Artemis\Core\Router\Router;
 use Artemis\Core\DataBases\DB;
 
@@ -10,10 +9,24 @@ $app = Router::getInstance();
 $snippets = DB::new("JSON", "snippets");
 
 
+session_start();
+$app->get("/register", function ($req, $res) {
+    $res->render(__DIR__ . "/views/register.php");
+    $res->status(200);
+});
+
+$app->get("/login", function ($req, $res) {
+    $res->render(__DIR__ . "/views/login.php");
+    $res->status(200);
+});
+
 $app->get("/snippets/new", function ($req, $res) {
     $res->render(__DIR__ . "/views/new.php");
     $res->status(200);
 });
+
+require_once "auth.php";
+
 
 
 $app->get("/snippets/:id", function ($req, $res) {
