@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . "/vendor/autoload.php";
 require_once "utils.php";
+require_once "db.php";
 
 use Artemis\Core\Router\Router;
 use Artemis\Core\DataBases\DB;
@@ -116,28 +117,20 @@ $app->post("/api/filetrees", function ($req, $res) {
 });
 
 $app->post("/api/snippets", function ($req, $res) {
-
-    $db = readDatabase();
-    $key = array_search($req->body()["id"], array_column($db, 'id'));
-
-    if ($key !== false) {
-        array_push(
-            $db[$key]["children"],
-            [ 
+     $data =   [ 
                 "date" => date('Y-m-d H:i:s'),
-                "user" => "leon",
+                "user" => $_SESSION["user"],
+                "user_id" => (string) $_SESSION["user_id"],
                 "text" => $req->body()["title"],
-                "id" => uniqid(),
                 "code" => $req->body()["code"],
-                "language" => $req->body()["language"]
-            ]
-        );
-        writeDatabase($db);
+                "language" => $req->body()["language"],
+                "folder" => $req->body()["folder"],
+     ];
+     writeSnippetDatabase($data);
+     $res->status(201);
+     $res->status(301);
+     $res->redirect("/");
 
-        $res->status(201);
-    } else {
-        $res->status(500);
-    }
     global $snippets;
 });
 

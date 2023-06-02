@@ -1,24 +1,8 @@
-[
-    {
-        "text": "asdasd",
-        "children": [
-            {
-                "date": "2023-05-31 15:52:41",
-                "user": "leon",
-                "text": "asddsa",
-                "id": "647751297157e",
-                "code": "asdsad",
-                "language": "php"
-            },
-            {
-                "date": "2023-05-31 16:27:17",
-                "user": "leon",
-                "text": "test",
-                "id": "64775945ddb96",
-                "code": "              snippetElement.className = \"card\";\n                            pre.className = \"language-js\";\n                            code.className = \"language-js\";\n                            code.innerHTML = Prism.highlight(child.code, Prism.languages.js, 'js');",
-                "language": "php"
-            }
-        ],
-        "id": "6476fff39e4a8"
-    }
-]
+{
+    "date": "2023-06-02 10:13:19",
+    "user": "test",
+    "user_id": "1",
+    "text": "asdasddas",
+    "code": "saddsa",
+    "language": "php"
+}
