@@ -40,3 +40,25 @@ function writeSnippetDatabase($data)
         die("An error occurred: $error_message");
     }
 }
+
+function readSnippetDatabase()
+{
+    try {
+        $db = new SQLite3('database.db');
+        $query = "SELECT * FROM snippets";
+        $result = $db->query($query);
+
+        $data = array();
+        while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
+            $data[] = $row;
+        }
+
+        $db->close();
+
+        return $data;
+
+    } catch (Exception $e) {
+        $error_message = $e->getMessage();
+        die("An error occurred: $error_message");
+    }
+}

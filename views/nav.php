@@ -1,5 +1,3 @@
-
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">SnippetVault</a>
@@ -13,17 +11,31 @@
             <span class="visually-hidden">(current)</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="/login">Login
-            <span class="visually-hidden">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="/register">Register
-            <span class="visually-hidden">(current)</span>
-          </a>
-        </li>
+
+        <?php if (!isset($_SESSION['auth'])) { ?>
+          <li class="nav-item">
+            <a class="nav-link active" href="/login">Login
+              <span class="visually-hidden">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/register">Register
+              <span class="visually-hidden">(current)</span>
+            </a>
+          </li>
+          </ul>
+        <?php } else { ?>
+      </ul>
+          <span class="navbar-text">
+            <?php echo $_SESSION["user"]; ?>
+            <a class="nav-link active" href="/signout">Signout
+              <span class="visually-hidden">(current)</span>
+            </a>
+          </span>
+       
+        <?php } ?>
+
+
     </div>
   </div>
 </nav>
-

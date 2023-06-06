@@ -38,6 +38,7 @@ $app->post("/auth/login", function ($req, $res) {
         if (password_verify($req->body()["password"], $row['password'])) {
             $_SESSION['user'] = $row['user'];
             $_SESSION['user_id'] = 1;
+            $_SESSION['auth'] = true;
             $res->status(301);
             $res->redirect("/");
        

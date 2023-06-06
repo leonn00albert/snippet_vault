@@ -36,9 +36,8 @@
            
                 if (Array.isArray(res)) {
                     console.log(res);
-                    res.reverse().forEach(item => {
-                        item.reverse().forEach(child => {
-                            console.log(child);
+                    res.reverse().forEach(child => {
+                     
                             var snippetElement = document.createElement("div");
                             var text = document.createElement("p");
                             text.textContent = `${child.user} created a new code snippet -  ${child.date_ago}`
@@ -53,7 +52,7 @@
                             snippetsDiv.appendChild(text);
                             snippetElement.appendChild(pre);
                             snippetsDiv.appendChild(snippetElement);
-                        });
+                      
                     });
                 }
 
